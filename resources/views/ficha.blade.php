@@ -42,11 +42,6 @@
             </div>
 
             <div class="form-group">
-                <label for="grau">Grau acadêmico</label>
-                <input class="form-control" type="text" id="grau" name="grau">
-            </div>
-
-            <div class="form-group">
                 <label for="orientador_nome">Nome do orientador</label>
                 <input class="form-control" type="text" id="orientador_nome" name="orientador_nome">
             </div>
@@ -94,14 +89,14 @@
                 <label class="control-label">Contém ilustração?</label>
 
                 <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="ilustracoes" id="ilustracoes" value="Sim">
+                <input class="form-check-input" type="radio" name="ilustracoes" id="ilustracao_sim" value="Sim">
                 <label class="form-check-label" for="ilustracoes">
                     Sim
                 </label>
                 </div>
 
                 <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="ilustracao" id="ilustracao_nao" value="nao">
+                <input class="form-check-input" type="radio" name="ilustracoes" id="ilustracao_nao" value="nao">
                 <label class="form-check-label" for="ilustracao_nao">
                     Não
                 </label>
@@ -137,24 +132,116 @@
                 <label for="assunto5">Assunto 5</label>
                 <input class="form-control" type="text" id="assunto5" name="assunto5">
             </div>
+            
+            <script type="text/javascript">
+
+            function clickCheck() {
+                if (document.getElementById('graduacao').checked) {
+                    document.getElementById('graduacao_select').style.display = 'block';
+                    document.getElementById('pos_select').style.display = 'none';
+                    document.getElementById('versao').style.display = 'none';
+                }
+                else if(document.getElementById('mestrado').checked || document.getElementById('doutorado').checked){
+                    document.getElementById('pos_select').style.display = 'block';
+                    document.getElementById('graduacao_select').style.display = 'none';
+                    document.getElementById('versao').style.display = 'block';
+                }
+                else{
+                    document.getElementById('pos_select').style.display = 'none';
+                    document.getElementById('graduacao_select').style.display = 'none';
+                    document.getElementById('versao').style.display = 'none';
+                }
+            }
+
+            </script>
 
             <div class="form-group">
-                <label for="nivel">Nível</label>
-                <select class="form-control" id="nivel" name="nivel">
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="grau" id="graduacao" value="graduacao" onclick="javascript:clickCheck();">
+                <label class="form-check-label" for="ilustracoes">
+                    Trabalho de Conclusão de Curso (Graduação)
+                </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="grau" id="mestrado" value="mestrado" onclick="javascript:clickCheck();">
+                <label class="form-check-label" for="ilustracoes">
+                    Dissertação (Mestrado)
+                </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="grau" id="mestrado_prof" value="mestrado_prof" onclick="javascript:clickCheck();">
+                <label class="form-check-label" for="ilustracoes">
+                    Dissertação (Mestrado Profissional)
+                </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="grau" id="doutorado" value="doutorado" onclick="javascript:clickCheck();">
+                <label class="form-check-label" for="ilustracoes">
+                    Tese (Doutorado)
+                </label>
+                </div>
+            </div>
+
+            <div class="form-group" style="display:none" id="graduacao_select">
+                <label for="departamento">Departamento de</label>
+                <select class="form-control" id="departamento" name="departamento">
                     <option value="" selected=""> - Selecione  -</option>
-                    <option value="graduacao">
-                        Trabalho de Conclusão de Curso (Graduação)
+                    <option value="MAC">
+                        Ciência da Computação
                     </option>
-                    <option value="mestrado">
-                        Dissertação (Mestrado)
+                    <option value="MAE">
+                        Estatística
                     </option>
-                    <option value="mestrado-pro">
-                        Dissertação (Mestrado Profissional)
+                    <option value="MAE">
+                        Matemática
                     </option>
-                    <option value="doutorado">
-                        Tese (Doutorado)
+                    <option value="MAP">
+                        Matemática Aplicada
                     </option>
                 </select>
+            </div>
+
+            <div class="form-group" style="display:none" id="pos_select">
+                <label for="programa">Programa de Pós-Graduação em</label>
+                <select class="form-control" id="programa" name="programa">
+                    <option value="" selected=""> - Selecione  -</option>
+                    <option value="POSBIO">
+                    Programa Interunidades de Pós-graduação em Bioinformática
+                    </option>
+                    <option value="POSMAC">
+                    Programa de Pós-Graduação em Ciência da Computação
+                    </option>
+                    <option value="POSMAE">
+                    Programa de Pós-Graduação em Estatística
+                    </option>
+                    <option value="POSMAT">
+                    Programa de Pós-graduação em Matemática
+                    </option>
+                    <option value="POSMAP">
+                    Programa de Pós-graduação em Matemática Aplicada
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group" style="display:none" id="versao">
+                <label>Indicar versão do trabalho</label>
+
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="versao" id="original" value="original">
+                <label class="form-check-label" for="original">
+                    Versão original
+                </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="versao" id="corrigida" value="corrigida">
+                <label class="form-check-label" for="corrigida">
+                    Versão corrigida
+                </label>
+                </div>
             </div>
 
             <button type="submit" class="btn btn-outline-dark">Enviar</button>
