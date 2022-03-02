@@ -53,19 +53,22 @@ class FichaController extends Controller
         // else
         //     $complemento = '';
         
-		$texto = $request['pessoa_ultimonome'].", ".$request['pessoa_nome']."\n   ".$titulo_subtitulo." / ".$request['pessoa_nome']." ".$request['pessoa_ultimonome'].$orientador_texto.$coorientador_texto.". - ".$request['cidade'].", ".$request['ano'].".\n   ".$request['no_paginas']." p.".$ilustracoes;//.$complemento."\n\n\n   ".$request['tipo_trabalho']; 
+        $request['cidade'] = "São Paulo";
+        $request['ano'] = "2022";
+		$texto = $request['pessoa_ultimonome'].", ".$request['pessoa_nome']."\n   ".$titulo_subtitulo." / ".$request['pessoa_nome']." ".$request['pessoa_ultimonome'].$orientador_texto.$coorientador_texto.". - ".$request['cidade'].", ".$request['ano'].".\n   ".$request['no_paginas']." p.".$ilustracoes."\n\n\n   ".$request['grau']; 
 		
-		// $departamento_texto = isset($request['departamento']) && strlen($request['departamento']) > 0 ? "".$request['departamento']." " : " ";  
-		// $area_texto = isset($request['area_concentracao']) && strlen($request['area_concentracao']) > 0 ? "".$request['area_concentracao']." " : " ";  
-        // $texto .= " - ";
-        
+
+		$departamento_texto = isset($request['departamento']) && strlen($request['departamento']) > 0 ? "".$request['departamento'] : " ";  
+		$area_texto = isset($request['area_concentracao']) && strlen($request['area_concentracao']) > 0 ? "".$request['area_concentracao'] : "";  
+        $texto .= " - ";
+
         // if ($departamento_texto == 'Departamento de . ');
         //     $departamento_texto = '';
 
         // if ($area_texto == 'Programa de Pós-Graduação em ')
         //     $area_texto = '';
         
-        // //$texto .= $departamento_texto.$area_texto."/ ".str_replace('\n', PHP_EOL,$request['unidade'])."."."\n  Bibliografia\n"."  ".$request['versao_trabalho']."\n\n\n   1. ".$request['assunto1'].". "; 
+        $texto .= $departamento_texto.$area_texto."/ "."Instituto de Matemática e Estatística / Universidade de São Paulo"."."."\n  Bibliografia\n"."  ".$request['versao_trabalho']."\n\n\n   1. ".$request['assunto1'].". "; 
 
 		if (!empty ($request['assunto2'])) 
 			$texto .= "2. ".$request['assunto2'].". "; 
@@ -82,7 +85,7 @@ class FichaController extends Controller
 		if (isset($request['orientador_nome']) && strlen($request['orientador_nome']) > 0 && isset($request['orientador_ultimonome']) && strlen($request['orientador_ultimonome']) > 0)
 			$texto .= "I. ".$request['orientador_ultimonome'].", ".$request['orientador_nome'].". II. Título."; 
 	
-        $texto .= "\n\n                                         CDD 21.ed. - ".$codigo;  	
+        //$texto .= "\n\n                                         CDD 21.ed. - ".$codigo;
 
         $cabecalho = "Autorizo a reprodução e divulgação total ou parcial deste trabalho, por qualquer meio convencional ou eletrônico, para fins de estudo e pesquisa, desde que citada a fonte.\n\n\n
         Ficha catalográfica elaborada com dados inseridos pelo(a) autor(a)\n
@@ -97,9 +100,9 @@ class FichaController extends Controller
 
         $pdf->selectFont('Times-Roman');
         
-        $pdf->ezText (str_replace('\n', PHP_EOL, $cabecalho) . "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", 10, array('justification' => 'center'));
+        $pdf->ezText (str_replace('\n', PHP_EOL, $cabecalho) . "\n", 10, array('justification' => 'center'));
 
-        $pdf->ezText (str_replace('\n', PHP_EOL,$request['descricao_ficha']) . "\n\n", 10, array('justification' => 'center'));
+        //$pdf->ezText (str_replace('\n', PHP_EOL,$request['descricao_ficha']) . "\n\n", 10, array('justification' => 'center'));
         
         $pdf->selectFont('Courier');
 
@@ -116,5 +119,44 @@ class FichaController extends Controller
         
         return response($pdf->ezStream(), 200)
                   ->header('Content-Type', 'application/pdf'); 
+
+        // return view('sucesso', [
+        //     'texto' => $texto
+        // ]);
     }
+
+    // public function visualizarPdf($texto){
+    //     $cabecalho = "Autorizo a reprodução e divulgação total ou parcial deste trabalho, por qualquer meio convencional ou eletrônico, para fins de estudo e pesquisa, desde que citada a fonte.\n\n\n
+    //     Ficha catalográfica elaborada com dados inseridos pelo(a) autor(a)\n
+    //     Biblioteca Carlos Benjamin de Lyra\n
+    //     Instituto de Matemática e Estatística\n
+    //     Universidade de São Paulo\n
+    //     ";
+    //     $ficha = array(array('cod' => '', 'ficha' => $texto));
+            
+    //     //Gera a ficha em pdf
+    //     $pdf = new Cezpdf('a4','portrait','color',[255,255,255]);
+
+    //     $pdf->selectFont('Times-Roman');
+        
+    //     $pdf->ezText (str_replace('\n', PHP_EOL, $cabecalho) . "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", 10, array('justification' => 'center'));
+
+    //     //$pdf->ezText (str_replace('\n', PHP_EOL,$request['descricao_ficha']) . "\n\n", 10, array('justification' => 'center'));
+        
+    //     $pdf->selectFont('Courier');
+
+    //     $pdf->ezText ("________________________________________________________________________________\n", 10, array('justification' => 'center')); 
+
+    //     $pdf->ezTable ($ficha,'','', array ('fontSize' => 9,'showHeadings'=>0, 'showLines'=>0, 'width'=>345, 'cols' =>array('cod'=>array('width'=>0))));
+
+    //     $pdf->ezText ("________________________________________________________________________________\n", 10, array('justification' => 'center')); 
+
+    //     $pdf->selectFont('Courier'); 
+        
+    //     $pdf->ezText ('Bibliotecárias do Serviço de Informação e Biblioteca Carlos Benjamin de Lyra do IME-USP, responsáveis pela estrutura de catalogação da publicação de acordo com a AACR2: Maria Lúcia Ribeiro CRB-8/2766; Stela do Nascimento Madruga CRB 8/7534.', 9, array('justification' => 'center'));
+
+        
+    //     return response($pdf->ezStream(), 200)
+    //               ->header('Content-Type', 'application/pdf'); 
+    // }
 }
