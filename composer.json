@@ -13,7 +13,9 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "ros/ezpdf": "^0.12.1",
-        "rospdf/pdf-php": "^0.12.63"
+        "rospdf/pdf-php": "^0.12.63",
+        "uspdev/laravel-usp-theme": "^2.4",
+        "uspdev/senhaunica-socialite": "^4.3"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -38,7 +40,8 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan vendor:publish --provider=\"Uspdev\\UspTheme\\ServiceProvider\" --tag=assets --force"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
