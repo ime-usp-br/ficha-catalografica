@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FichaController;
+use App\Http\Controllers\ConfigController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,12 @@ use App\Http\Controllers\FichaController;
 */
 
 Route::get('/', function () {
-    return view('ficha');
+    return view('ficha.ficha');
 });
 
 Route::post('/ficha', [FichaController::class, 'montarFicha']);
 Route::get('/ficha/pdf/{texto}', [FichaController::class, 'visualizarPdf']);
+
+
+Route::get('/configs/edit', [ConfigController::class, 'edit']);
+Route::post('/configs/save', [ConfigController::class, 'save']);

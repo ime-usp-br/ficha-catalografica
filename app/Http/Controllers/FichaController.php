@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Config;
 use Cezpdf;
-use Dompdf\Dompdf;
 
 
 class FichaController extends Controller
@@ -87,12 +87,8 @@ class FichaController extends Controller
 	
         //$texto .= "\n\n                                         CDD 21.ed. - ".$codigo;
 
-        $cabecalho = "Autorizo a reprodução e divulgação total ou parcial deste trabalho, por qualquer meio convencional ou eletrônico, para fins de estudo e pesquisa, desde que citada a fonte.\n\n\n
-        Ficha catalográfica elaborada com dados inseridos pelo(a) autor(a)\n
-        Biblioteca Carlos Benjamin de Lyra\n
-        Instituto de Matemática e Estatística\n
-        Universidade de São Paulo\n
-        ";
+        $config = Config::orderByDesc('created_at')->first();
+
         $ficha = array(array('cod' => '', 'ficha' => $texto));
             
         //Gera a ficha em pdf
@@ -100,7 +96,7 @@ class FichaController extends Controller
 
         $pdf->selectFont('Times-Roman');
         
-        $pdf->ezText (str_replace('\n', PHP_EOL, $cabecalho) . "\n", 10, array('justification' => 'center'));
+        $pdf->ezText (str_replace('\n', PHP_EOL, $config->cabecalho) . "\n", 10, array('justification' => 'center'));
 
         //$pdf->ezText (str_replace('\n', PHP_EOL,$request['descricao_ficha']) . "\n\n", 10, array('justification' => 'center'));
         
@@ -114,7 +110,7 @@ class FichaController extends Controller
 
         $pdf->selectFont('Courier'); 
         
-        $pdf->ezText ('Bibliotecárias do Serviço de Informação e Biblioteca Carlos Benjamin de Lyra do IME-USP, responsáveis pela estrutura de catalogação da publicação de acordo com a AACR2: Maria Lúcia Ribeiro CRB-8/2766; Stela do Nascimento Madruga CRB 8/7534.', 9, array('justification' => 'center'));
+        $pdf->ezText ($config->rodape, 9, array('justification' => 'center'));
 
         
         return response($pdf->ezStream(), 200)
