@@ -10,6 +10,7 @@ class ConfigController extends Controller
 
     public function edit()
     {
+        $this->authorize('admin');
         $config = Config::orderByDesc('created_at')->first();
         if(!$config) $config =  new Config;
         return view('config.config', [
@@ -19,6 +20,7 @@ class ConfigController extends Controller
 
     public function save(Request $request)
     {
+        $this->authorize('admin');
         $config = [];
         $config['cabecalho'] = $request->cabecalho;
         $config['rodape'] = $request->rodape;

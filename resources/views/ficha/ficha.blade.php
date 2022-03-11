@@ -4,7 +4,8 @@
 <form action="/ficha" method="POST">
     @csrf
 
-    <div class="header">
+    <div class="container">
+    <div>
         <p class="header-subtitle"><b>Biblioteca do IME-USP</b></p>
         <p class="header-title"><b>Elaboração de ficha catalográfica</b></p>
     </div>
@@ -265,6 +266,8 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
         <button type="submit" class="btn btn-outline-dark">Enviar</button>
     
     </div>
+    </div>
+ 
 </form>
 @endsection
 
