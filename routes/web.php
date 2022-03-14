@@ -20,7 +20,6 @@ Route::get('/', function () {
 });
 
 Route::post('/ficha', [FichaController::class, 'montarFicha']);
-Route::get('/ficha/pdf/{texto}', [FichaController::class, 'visualizarPdf']);
 
 
 Route::get('/configs/edit', [ConfigController::class, 'edit']);

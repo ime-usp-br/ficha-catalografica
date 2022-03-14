@@ -10,6 +10,7 @@ use Cezpdf;
 class FichaController extends Controller
 {
     public function montarFicha(Request $request){
+
         $orientadora = $request['sou_orientadora'] ? 'a' : ''; //se for do gênero feminino
 
         $coorientadora = $request['sou_coorientadora'] ? 'a' : ''; //se for do gênero feminino
@@ -114,45 +115,6 @@ class FichaController extends Controller
 
         
         return response($pdf->ezStream(), 200)
-                  ->header('Content-Type', 'application/pdf'); 
-
-        // return view('sucesso', [
-        //     'texto' => $texto
-        // ]);
+                  ->header('Content-Type', 'application/pdf');
     }
-
-    // public function visualizarPdf($texto){
-    //     $cabecalho = "Autorizo a reprodução e divulgação total ou parcial deste trabalho, por qualquer meio convencional ou eletrônico, para fins de estudo e pesquisa, desde que citada a fonte.\n\n\n
-    //     Ficha catalográfica elaborada com dados inseridos pelo(a) autor(a)\n
-    //     Biblioteca Carlos Benjamin de Lyra\n
-    //     Instituto de Matemática e Estatística\n
-    //     Universidade de São Paulo\n
-    //     ";
-    //     $ficha = array(array('cod' => '', 'ficha' => $texto));
-            
-    //     //Gera a ficha em pdf
-    //     $pdf = new Cezpdf('a4','portrait','color',[255,255,255]);
-
-    //     $pdf->selectFont('Times-Roman');
-        
-    //     $pdf->ezText (str_replace('\n', PHP_EOL, $cabecalho) . "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", 10, array('justification' => 'center'));
-
-    //     //$pdf->ezText (str_replace('\n', PHP_EOL,$request['descricao_ficha']) . "\n\n", 10, array('justification' => 'center'));
-        
-    //     $pdf->selectFont('Courier');
-
-    //     $pdf->ezText ("________________________________________________________________________________\n", 10, array('justification' => 'center')); 
-
-    //     $pdf->ezTable ($ficha,'','', array ('fontSize' => 9,'showHeadings'=>0, 'showLines'=>0, 'width'=>345, 'cols' =>array('cod'=>array('width'=>0))));
-
-    //     $pdf->ezText ("________________________________________________________________________________\n", 10, array('justification' => 'center')); 
-
-    //     $pdf->selectFont('Courier'); 
-        
-    //     $pdf->ezText ('Bibliotecárias do Serviço de Informação e Biblioteca Carlos Benjamin de Lyra do IME-USP, responsáveis pela estrutura de catalogação da publicação de acordo com a AACR2: Maria Lúcia Ribeiro CRB-8/2766; Stela do Nascimento Madruga CRB 8/7534.', 9, array('justification' => 'center'));
-
-        
-    //     return response($pdf->ezStream(), 200)
-    //               ->header('Content-Type', 'application/pdf'); 
-    // }
 }
