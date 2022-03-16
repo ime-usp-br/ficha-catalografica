@@ -5,11 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Config;
 use Cezpdf;
+use App\Http\Requests\FichaRequest;
 
 
 class FichaController extends Controller
 {
     public function montarFicha(Request $request){
+
+        $config = Config::orderByDesc('created_at')->first();
+
+        //caso não exista configurações criadas, a ficha não é criada e é dado um aviso
+        if(!$config){
+            request()->session()->flash('alert-danger', 'Não existem configurações salvas.');
+            return back();
+        }
+        
+        //atualizar o número total de fichas criadas
+        $newConfig = [];
+        $newConfig['cabecalho'] = $config->cabecalho;
+        $newConfig['rodape'] = $config->rodape;
+        $newConfig['num_fichas'] = $config->num_fichas + 1;
+        $config->update($newConfig);
+
 
         $orientadora = $request['sou_orientadora'] ? 'a' : ''; //se for do gênero feminino
 
@@ -55,13 +72,15 @@ class FichaController extends Controller
         //     $complemento = '';
         
         $request['cidade'] = "São Paulo";
-        $request['ano'] = "2022";
 		$texto = $request['pessoa_ultimonome'].", ".$request['pessoa_nome']."\n   ".$titulo_subtitulo." / ".$request['pessoa_nome']." ".$request['pessoa_ultimonome'].$orientador_texto.$coorientador_texto.". - ".$request['cidade'].", ".$request['ano'].".\n   ".$request['no_paginas']." p.".$ilustracoes."\n\n\n   ".$request['grau']; 
 		
 
-		$departamento_texto = isset($request['departamento']) && strlen($request['departamento']) > 0 ? "".$request['departamento'] : " ";  
-		$area_texto = isset($request['area_concentracao']) && strlen($request['area_concentracao']) > 0 ? "".$request['area_concentracao'] : "";  
+		$departamento_texto = isset($request['departamento']) && strlen($request['departamento']) > 0 && $request['grau'] == 'Trabalho de Conclusão de Curso (Graduação)' ? "".$request['departamento'] : "";  
+		$area_texto = isset($request['area_concentracao']) && strlen($request['area_concentracao']) > 0 && $request['grau'] != 'Trabalho de Conclusão de Curso (Graduação)' ? "".$request['area_concentracao']." " : " ";
+        if($request['grau'] == 'Dissertação (Mestrado Profissional)') $area_texto = ""."Programa de Pós-Graduação Mestrado Profissional em Ensino de Matemática ";
         $texto .= " - ";
+
+
 
         // if ($departamento_texto == 'Departamento de . ');
         //     $departamento_texto = '';
@@ -69,7 +88,7 @@ class FichaController extends Controller
         // if ($area_texto == 'Programa de Pós-Graduação em ')
         //     $area_texto = '';
         
-        $texto .= $departamento_texto.$area_texto."/ "."Instituto de Matemática e Estatística / Universidade de São Paulo"."."."\n  Bibliografia\n"."  ".$request['versao_trabalho']."\n\n\n   1. ".$request['assunto1'].". "; 
+        $texto .= $departamento_texto.$area_texto."/ "."Instituto de Matemática e Estatística / Universidade de São Paulo"."."."\n   Bibliografia\n"."   ".$request['versao_trabalho']."\n\n\n   1. ".$request['assunto1'].". "; 
 
 		if (!empty ($request['assunto2'])) 
 			$texto .= "2. ".$request['assunto2'].". "; 
@@ -88,7 +107,6 @@ class FichaController extends Controller
 	
         //$texto .= "\n\n                                         CDD 21.ed. - ".$codigo;
 
-        $config = Config::orderByDesc('created_at')->first();
 
         $ficha = array(array('cod' => '', 'ficha' => $texto));
             
@@ -112,9 +130,11 @@ class FichaController extends Controller
         $pdf->selectFont('Courier'); 
         
         $pdf->ezText ($config->rodape, 9, array('justification' => 'center'));
+    
 
-        
         return response($pdf->ezStream(), 200)
                   ->header('Content-Type', 'application/pdf');
     }
+
+
 }

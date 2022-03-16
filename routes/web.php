@@ -21,6 +21,6 @@ Route::get('/', function () {
 
 Route::post('/ficha', [FichaController::class, 'montarFicha']);
 
-
+Route::get('/configs', [ConfigController::class, 'mostrarConfigs']);
 Route::get('/configs/edit', [ConfigController::class, 'edit']);
 Route::post('/configs/save', [ConfigController::class, 'save']);

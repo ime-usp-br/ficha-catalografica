@@ -23,23 +23,25 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
         </div>
 
         <div class="form-group">
-            <label for="email-contato"><b>Email para contato</b><span class="text-danger p-3">&#42;</span></label>
-            <input class="form-control" type="text" id="email-contato" name="email-contato">
+            <label for="email"><b>Email para contato</b><span class="text-danger p-3">&#42;</span></label>
+            <input class="form-control" type="text" id="email" name="email">
         </div>
 
         <div class="form-group">
-            <label for="email-confirm"><b>Confirmar email</b><span class="text-danger p-3">&#42;</span> </label>
-            <input class="form-control" type="text" id="email-confirm" name="email-confirm">
+            <label for="email-confirmation"><b>Confirmar email</b><span class="text-danger p-3">&#42;</span> </label>
+            <input class="form-control" type="text" id="email-confirmation" name="email_confirmation">
         </div>
 
         <div class="form-group">
-            <label for="prenome"><b>Prenome, primeiros sobrenomes, partículas de ligação</b><span class="text-danger p-3">&#42;</span> </label>
-            <input class="form-control" type="text" id="prenome" name="prenome">
+            <label for="pessoa_nome"><b>Prenome, primeiros sobrenomes, partículas de ligação</b><span class="text-danger p-3">&#42;</span> </label>
+            <input class="form-control" type="text" id="pessoa_nome" name="pessoa_nome">
+            <p style="color:gray">Ex.: José Antônio Costa de</p>
         </div>
 
         <div class="form-group">
             <label for="pessoa_ultimonome"><b> Último sobrenome e acréscimos de agnomes (Júnior, Filho, Segundo, Neto, Sobrinho, etc.)</b><span class="text-danger p-3">&#42;</span></label>
             <input class="form-control" type="text" id="pessoa_ultimonome" name="pessoa_ultimonome">
+            <p style="color:gray">Ex.: Oliveira Filho</p>
         </div>
     </div>
 
@@ -73,6 +75,7 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
                 document.getElementById('pos_select').style.display = 'none';
                 document.getElementById('graduacao_select').style.display = 'none';
                 document.getElementById('versao').style.display = 'block';
+                
             }
         }
 
@@ -133,8 +136,8 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
             <label for="area_concentracao"><b> Programa de Pós-Graduação em</b><span class="text-danger p-3">&#42;</span></label>
             <select class="form-control" id="area_concentracao" name="area_concentracao">
                 <option value="" selected=""> - Selecione  -</option>
-                <option value="Programa Interunidades de Pós-graduação em Bioinformática">
-                Programa Interunidades de Pós-graduação em Bioinformática
+                <option value="Programa Interunidades de Pós-Graduação em Bioinformática">
+                Programa Interunidades de Pós-Graduação em Bioinformática
                 </option>
                 <option value="Programa de Pós-Graduação em Ciência da Computação">
                 Programa de Pós-Graduação em Ciência da Computação
@@ -142,11 +145,11 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
                 <option value="Programa de Pós-Graduação em Estatística">
                 Programa de Pós-Graduação em Estatística
                 </option>
-                <option value="Programa de Pós-graduação em Matemática">
-                Programa de Pós-graduação em Matemática
+                <option value="Programa de Pós-Graduação em Matemática">
+                Programa de Pós-Graduação em Matemática
                 </option>
-                <option value="Programa de Pós-graduação em Matemática Aplicada">
-                Programa de Pós-graduação em Matemática Aplicada
+                <option value="Programa de Pós-Graduação em Matemática Aplicada">
+                Programa de Pós-Graduação em Matemática Aplicada
                 </option>
             </select>
         </div>
@@ -197,8 +200,8 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
         </div>
 
         <div class="form-check form-group">
-            <input class="form-check-input" type="checkbox" value="" id="coorientadora">
-            <label class="form-check-label" for="coorientadora">
+            <input class="form-check-input" type="checkbox" value="" id="sou_coorientadora" name="sou_coorientadora">
+            <label class="form-check-label" for="sou_coorientadora">
                 Coorientadora?
             </label>
         </div>
@@ -235,6 +238,7 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
             <div class="form-group">
                 <label for="hidden"><b>ASSUNTOS (MÍN. 1, MAX. 5)</b><span class="text-danger p-3">&#42;</span></label>
                 <input type="hidden" id="hidden">
+                <p style="color:gray">Em caso de dúvida, veja a formatação no <a href="https://vocabusp.aguia.usp.br/Vocab/Sibix652.dll/Assuntos" target="_blank">Sibix</a>.</p>
             </div>
 
             <div class="form-group">
