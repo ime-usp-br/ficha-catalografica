@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Config;
 use Cezpdf;
-use App\Http\Requests\FichaRequest;
 
 
 class FichaController extends Controller
