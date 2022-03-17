@@ -292,11 +292,10 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
             </div>
         </div>
 
-        <button type="submit" class="btn btn-outline-dark" onClick="_blank">Enviar</button>
+        <button type="submit" class="btn btn-outline-dark">Enviar</button>
     
     </div>
-
-    <p style="text-align: justify">Desenvolvido pela Seção Técnica de Informática - STI do Instituto de Ciências Matemáticas e de Computação - ICMC, utilizando o módulo <a href="https://github.com/fflch/webform_ficha_catalografica" target="_blank">Webform Ficha Catalográfica</a> desenvolvido pela Faculdade de Filosofia, Letras e Ciências Humanas - FFLCH e adaptado pela Seção de Apoio Institucional do Instituto de Matemática e Estatística - IME.</p>
+    
     </div>
  
 </form>
