@@ -46,13 +46,13 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
         <div class="form-group">
             <label for="pessoa_nome"><b>Prenome, primeiros sobrenomes, partículas de ligação</b><span class="text-danger p-3">&#42;</span> </label>
             <input class="form-control" type="text" id="pessoa_nome" name="pessoa_nome" required>
-            <p style="color:gray">Ex.: José Antônio Costa de</p>
+            <p style="color:gray">Ex.: João Carlos da</p>
         </div>
 
         <div class="form-group">
             <label for="pessoa_ultimonome"><b> Último sobrenome e acréscimos de agnomes (Júnior, Filho, Segundo, Neto, Sobrinho, etc.)</b><span class="text-danger p-3">&#42;</span></label>
             <input class="form-control" type="text" id="pessoa_ultimonome" name="pessoa_ultimonome" required>
-            <p style="color:gray">Ex.: Oliveira Filho</p>
+            <p style="color:gray">Ex.: Silva Neto</p>
         </div>
     </div>
 
@@ -263,7 +263,7 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
             <div class="form-group">
                 <label for="hidden"><b>ASSUNTOS (MÍN. 1, MAX. 5)</b><span class="text-danger p-3">&#42;</span></label>
                 <input type="hidden" id="hidden">
-                <p style="color:gray">Em caso de dúvida, veja a formatação no <a href="https://vocabusp.aguia.usp.br/Vocab/Sibix652.dll/Assuntos" target="_blank">Sibix</a>.</p>
+                <p style="color:gray">Em caso de dúvida, consulte o <a href="https://vocabusp.aguia.usp.br/Vocab/Sibix652.dll/Assuntos" target="_blank">Vocabulário Controlado da USP - Sibix</a>.</p>
             </div>
 
             <div class="form-group">
