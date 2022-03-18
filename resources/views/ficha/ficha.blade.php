@@ -6,8 +6,8 @@
 
     <div class="container">
     <div>
-        <p class="header-subtitle"><b>Biblioteca do IME-USP</b></p>
-        <p class="header-title"><b>Elaboração de ficha catalográfica</b></p>
+        <p style="font-size: large"><b>Biblioteca do IME-USP</b></p>
+        <p style="font-size: x-large"><b>Elaboração de ficha catalográfica</b></p>
     </div>
 
     <p style="text-align: justify">A ficha catalográfica é um item obrigatório nos trabalhos acadêmicos. Contém um conjunto de elementos de descrição técnica do documento e deve ser impressa no verso da folha de rosto do trabalho. Após o preenchimento do formulário abaixo, a ficha será gerada automaticamente em formato PDF.
@@ -15,7 +15,7 @@ Este serviço destina-se exclusivamente aos alunos dos cursos de Graduação e P
 Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-mail <a href="mailto:bib@ime.usp.br">bib@ime.usp.br</a>.</p>
     <p class="text-danger">* Obrigatório</p>
 
-    <div class="forms-container">
+    <div style="border: 1px; border-style: solid; border-radius: 5px; background-color: #FFFFFF; border-color: #A9A9A9; padding: 10px; margin-bottom: 10px;">
         <p><b>DADOS DO SOLICITANTE</b><span class="text-danger p-3">&#42;</span></p>
 
         <div class="form-group">
@@ -56,7 +56,7 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
         </div>
     </div>
 
-    <div class="forms-container">
+    <div style="border: 1px; border-style: solid; border-radius: 5px; background-color: #FFFFFF; border-color: #A9A9A9; padding: 10px; margin-bottom: 10px;">
         <p><b>INFORMAÇÕES DO TRABALHO</b><span class="text-danger p-3">&#42;</span></p>
 
         <div class="form-group">
@@ -259,7 +259,7 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
             </div>
         </div>
         
-        <div class="forms-container">
+        <div style="border: 1px; border-style: solid; border-radius: 5px; background-color: #FFFFFF; border-color: #A9A9A9; padding: 10px; margin-bottom: 10px;">
             <div class="form-group">
                 <label for="hidden"><b>ASSUNTOS (MÍN. 1, MAX. 5)</b><span class="text-danger p-3">&#42;</span></label>
                 <input type="hidden" id="hidden">
