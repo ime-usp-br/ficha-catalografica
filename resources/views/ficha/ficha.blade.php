@@ -208,7 +208,7 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
         </div>
 
         <div class="form-check form-group">
-            <input class="form-check-input" type="checkbox" value="" id="sou_orientadora" name="sou_orientadora">
+            <input class="form-check-input" type="checkbox" value="True" id="sou_orientadora" name="sou_orientadora">
             <label class="form-check-label" for="sou_orientadora">
                 Orientadora?
             </label>
@@ -225,7 +225,7 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
         </div>
 
         <div class="form-check form-group">
-            <input class="form-check-input" type="checkbox" value="" id="sou_coorientadora" name="sou_coorientadora">
+            <input class="form-check-input" type="checkbox" value="True" id="sou_coorientadora" name="sou_coorientadora">
             <label class="form-check-label" for="sou_coorientadora">
                 Coorientadora?
             </label>
