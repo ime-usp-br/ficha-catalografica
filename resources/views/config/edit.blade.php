@@ -4,7 +4,7 @@
 <form action="/configs/save" method="POST">
     @csrf
     <div class="container">
-        <div class="forms-container">
+        <div style="border: 1px; border-style: solid; border-radius: 5px; background-color: #FFFFFF; border-color: #A9A9A9; padding: 10px; margin-bottom: 10px;">
             <div class="form-group">
                 <label for="cabecalho"><b>Cabeçalho</b></label>
                 <textarea class="form-control" name="cabecalho" id="cabecalho" cols="30" rows="10" required>{{old('cabecalho', $config->cabecalho)}}</textarea>
