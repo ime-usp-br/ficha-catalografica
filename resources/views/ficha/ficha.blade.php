@@ -215,13 +215,13 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
         </div>
 
         <div class="form-group">
-            <label for="coorientador_nome"><b>Nome do coorientador</b><span class="text-danger p-3">&#42;</span></label>
-            <input class="form-control" type="text" id="coorientador_nome" name="coorientador_nome" required>
+            <label for="coorientador_nome"><b>Nome do coorientador</b></label>
+            <input class="form-control" type="text" id="coorientador_nome" name="coorientador_nome">
         </div>
 
         <div class="form-group">
-            <label for="coorientador_ultimonome"><b>Sobrenome do coorientador</b><span class="text-danger p-3">&#42;</span></label>
-            <input class="form-control" type="text" id="coorientador_ultimonome" name="coorientador_ultimonome" required>
+            <label for="coorientador_ultimonome"><b>Sobrenome do coorientador</b></label>
+            <input class="form-control" type="text" id="coorientador_ultimonome" name="coorientador_ultimonome">
         </div>
 
         <div class="form-check form-group">
