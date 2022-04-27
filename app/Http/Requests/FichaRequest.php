@@ -29,7 +29,6 @@ class FichaRequest extends FormRequest
             'pessoa_nome' => 'required',
             'pessoa_ultimonome' => 'required',
             'titulo_trabalho' => 'required',
-            'subtitulo_trabalho' => 'required',
             'grau' => 'required',
             'departamento' => 'required_if:grau,Trabalho de Conclusão de Curso (Graduação)',
             'area_concentracao' => 'required_unless:grau,Trabalho de Conclusão de Curso (Graduação),Dissertação (Mestrado Profissional)',
