@@ -65,7 +65,7 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
         </div>
 
         <div class="form-group">
-            <label for="subtitulo_trabalho"><b>Subtítulo do trabalho</b><span class="text-danger p-3">&#42;</span></label>
+            <label for="subtitulo_trabalho"><b>Subtítulo do trabalho</b></label>
             <input class="form-control" type="text" id="subtitulo_trabalho" name="subtitulo_trabalho" required>
         </div>
 
