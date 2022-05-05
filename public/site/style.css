@@ -11302,3 +11302,24 @@ textarea.form-control-lg {
 .header-subtitle {
   font-size: large;
 }
+
+#table-wrapper {
+  position: relative;
+}
+
+#table-scroll {
+  overflow: auto;
+  margin-top: 20px;
+}
+
+#table-wrapper table {
+  width: 100%;
+}
+
+td:last-child {
+  background-color: lightgray;
+}
+
+th:last-child {
+  background-color: lightgray;
+}
