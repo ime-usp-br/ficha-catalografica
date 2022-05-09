@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Config;
+use App\Models\Ficha;
 use Cezpdf;
 
 
@@ -19,12 +20,8 @@ class FichaController extends Controller
             return back();
         }
         
-        //atualizar o número total de fichas criadas
-        $newConfig = [];
-        $newConfig['cabecalho'] = $config->cabecalho;
-        $newConfig['rodape'] = $config->rodape;
-        $newConfig['num_fichas'] = $config->num_fichas + 1;
-        $config->update($newConfig);
+        //cria uma ficha nova no banco
+        Ficha::create();
 
 
         $orientadora = $request['sou_orientadora'] ? 'a' : ''; //se for do gênero feminino
