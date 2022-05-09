@@ -16,8 +16,8 @@
                     @foreach($anos as $ano)
                        <th>{{$ano}}</th>     
                     @endforeach
-                    <th>FICHAS GERADAS POR MÊS</th>
-                    </tr>
+                    <th></th>
+                    </tr>  
                 </thead>
                 <tbody>
                     @for ($i=0; $i < 12; $i++)
@@ -26,8 +26,8 @@
                         @foreach($anos as $ano)
                             <td>{{$num_fichas[$ano][$i]}}</td>
                         @endforeach
-                        <td>{{$totalPorMes[$i]}}</td>
-                        </tr>
+                        <td></td>
+                        </tr>           
                     @endfor
 
                         <tr style="background-color: lightGray">
@@ -35,7 +35,7 @@
                             @foreach($anos as $ano)
                                 <td>{{$num_fichas[$ano]['total']}}</td>
                             @endforeach
-                            <td style="background-color: gray"><b>TOTAL DE FICHAS GERADAS: {{$totalFichas}}</b></td>
+                            <td><b>TOTAL DE FICHAS GERADAS: {{$totalFichas}}</b></td>
                         </tr>
                 </tbody>
             </table>

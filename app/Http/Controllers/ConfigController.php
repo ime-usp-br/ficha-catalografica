@@ -19,7 +19,6 @@ class ConfigController extends Controller
         $fichas = Ficha::select('*')->orderBy('created_at', 'asc')->get();
 
         $totalFichas = 0;
-        $totalPorMes = array_fill(0,12,0);
         foreach($fichas as $ficha){
             $totalFichas++;
 
@@ -33,7 +32,6 @@ class ConfigController extends Controller
 
             $num_fichas[$ano][$mes-1]++;
             $num_fichas[$ano]['total']++;
-            $totalPorMes[$mes-1]++;
         }
 
 
@@ -43,7 +41,6 @@ class ConfigController extends Controller
             'totalFichas' => $totalFichas,
             'anos' => array_keys($num_fichas),
             'meses' => ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-            'totalPorMes' => $totalPorMes
         ]);
     }
 
