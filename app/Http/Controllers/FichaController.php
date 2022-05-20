@@ -109,9 +109,9 @@ class FichaController extends Controller
             Biblioteca Carlos Benjamin de Lyra\ <br>
             Instituto de Matemática e Estatística\ <br>
             Universidade de São Paulo\par <br>
-            \\vspace{2\baselineskip}\hrule\vspace{.8\baselineskip} <br>
-            \\RaggedRightRightskip 0pt plus 30pt minus 0pt\relax <br>
-            \\RaggedRightParfillskip 20pt plus 40pt minus 10pt\relax <br>
+            \\vspace{2\baselineskip}\hrule\\vspace{.8\baselineskip} <br>
+            \\RaggedRightRightskip 0pt plus 30pt minus 0pt\\relax <br>
+            \\RaggedRightParfillskip 20pt plus 40pt minus 10pt\\relax <br>
             \\ttfamily\hspace{2em}\begin{minipage}[t]{125mm} <br>
             \RaggedRight\sloppy\setlength{\parindent}{\widthof{123}} <br> <br>
             
@@ -121,7 +121,7 @@ class FichaController extends Controller
             $latex .= $this->trocaQuebraLinhaLaTex($texto);
 
             $latex .= "\\end{minipage}\par
-            \\vspace{1\baselineskip}\hrule\vspace{.5\baselineskip}\rmfamily
+            \\vspace{1\baselineskip}\hrule\\vspace{.5\baselineskip}\\rmfamily
             Bibliotecárias do Serviço de Informação e Biblioteca\
             Carlos Benjamin de Lyra do IME-USP, responsáveis pela\
             estrutura de catalogação da publicação de acordo com a AACR2:\
