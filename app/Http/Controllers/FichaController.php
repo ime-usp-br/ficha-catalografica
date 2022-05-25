@@ -94,38 +94,39 @@ class FichaController extends Controller
 
     public function trocaQuebraLinhaLaTex($texto){
         $texto = str_replace("\n   ", "<br><br>", $texto);
-        $texto = str_replace("\n", "<br><br>\\vspace{1\baselineskip}<br><br>", $texto);
+        $texto = str_replace("\n", "<br><br>\\vspace{1\baselineskip}<br>", $texto);
         return $texto;
     }
 
     public function montarFicha(Request $request){
 
         if($request['button'] == "latex"){
-            $latex = "% Este codigo depende das packages calc, setspace e ragged2e
+            $latex = "% Este codigo depende das packages calc, setspace e ragged2e <br>
             % (ja incluidas no modelo LaTeX do IME-USP) <br>
             \begingroup\centering\singlespacing\small <br>
             \hyphenrules{nohyphenation}\hbadness=10000 <br>
-            Ficha catalográfica elaborada com dados inseridos pelo(a) autor(a)\ <br>
-            Biblioteca Carlos Benjamin de Lyra\ <br>
-            Instituto de Matemática e Estatística\ <br>
+            Ficha catalográfica elaborada com dados inseridos pelo(a) autor(a)\\\\ <br>
+            Biblioteca Carlos Benjamin de Lyra\\\\ <br>
+            Instituto de Matemática e Estatística\\\\ <br>
             Universidade de São Paulo\par <br>
             \\vspace{2\baselineskip}\hrule\\vspace{.8\baselineskip} <br>
             \\RaggedRightRightskip 0pt plus 30pt minus 0pt\\relax <br>
             \\RaggedRightParfillskip 20pt plus 40pt minus 10pt\\relax <br>
             \\ttfamily\hspace{2em}\begin{minipage}[t]{125mm} <br>
-            \RaggedRight\sloppy\setlength{\parindent}{\widthof{123}} <br> <br>
+            \\RaggedRight\sloppy\setlength{\parindent}{\widthof{123}} <br> <br>
             
             \\noindent ";
 
             $texto = $this->montaTextoFicha($request);
             $latex .= $this->trocaQuebraLinhaLaTex($texto);
 
-            $latex .= "\\end{minipage}\par
-            \\vspace{1\baselineskip}\hrule\\vspace{.5\baselineskip}\\rmfamily
-            Bibliotecárias do Serviço de Informação e Biblioteca\
-            Carlos Benjamin de Lyra do IME-USP, responsáveis pela\
-            estrutura de catalogação da publicação de acordo com a AACR2:\
-            Maria Lúcia Ribeiro CRB-8/2766; Stela do Nascimento Madruga CRB 8/7534.
+            $latex .= " <br> <br>
+            \\end{minipage}\par <br>
+            \\vspace{1\baselineskip}\hrule\\vspace{.5\baselineskip}\\rmfamily <br>
+            Bibliotecárias do Serviço de Informação e Biblioteca\\\\ <br>
+            Carlos Benjamin de Lyra do IME-USP, responsáveis pela\\\\ <br>
+            estrutura de catalogação da publicação de acordo com a AACR2:\\\\ <br>
+            Maria Lúcia Ribeiro CRB-8/2766; Stela do Nascimento Madruga CRB 8/7534. <br>
             \par\\endgroup";
 
             return view('ficha.fichaLatex', [
