@@ -263,7 +263,7 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
             <div class="form-group">
                 <label for="hidden"><b>ASSUNTOS (MÍN. 1, MAX. 5)</b><span class="text-danger p-3">&#42;</span></label>
                 <input type="hidden" id="hidden">
-                <p style="color:gray">Em caso de dúvida, consulte o <a href="https://vocabusp.aguia.usp.br/Vocab/Sibix652.dll/Assuntos" target="_blank">Vocabulário Controlado da USP - Sibix</a>.</p>
+                <p style="color:gray">Em caso de dúvida, consulte o <a href="https://vocabulario.abcd.usp.br/" target="_blank">Vocabulário Controlado da USP</a>.</p>
             </div>
 
             <div class="form-group">
