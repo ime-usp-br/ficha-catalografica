@@ -293,7 +293,7 @@ Em caso de dúvida, entre em contato pelo telefone +55 11 3091-6490/6174 ou e-ma
         </div>
 
         <div class="btn-group">
-            <button type="submit" name="button" value="pdf" class="btn btn-outline-dark">Enviar</button>
+            <button type="submit" name="button" value="pdf" class="btn btn-outline-dark">Gerar PDF</button>
             <button type="submit" name="button" value="latex" class="btn btn-outline-dark">Gerar código LaTeX</button>
         </div>
 
