@@ -72,7 +72,7 @@ class FichaController extends Controller
         // if ($area_texto == 'Programa de Pós-Graduação em ')
         //     $area_texto = '';
         
-        $texto .= $departamento_texto.$area_texto."/ "."Instituto de Matemática e Estatística / Universidade de São Paulo"."."."\n   Bibliografia\n"."   ".$request['versao_trabalho']."\n\n\n   1. ".$request['assunto1'].". "; 
+        $texto .= $departamento_texto.$area_texto."/ "."Instituto de Matemática, Estatística e Ciência da Computação / Universidade de São Paulo"."."."\n   Bibliografia\n"."   ".$request['versao_trabalho']."\n\n\n   1. ".$request['assunto1'].". "; 
 
         if (!empty ($request['assunto2'])) 
             $texto .= "2. ".$request['assunto2'].". "; 
@@ -107,7 +107,7 @@ class FichaController extends Controller
             \hyphenrules{nohyphenation}\hbadness=10000 <br>
             Ficha catalográfica elaborada com dados inseridos pelo(a) autor(a)\\\\ <br>
             Biblioteca Carlos Benjamin de Lyra\\\\ <br>
-            Instituto de Matemática e Estatística\\\\ <br>
+            Instituto de Matemática, Estatística e Ciência da Computação\\\\ <br>
             Universidade de São Paulo\par <br>
             \\vspace{2\baselineskip}\hrule\\vspace{.8\baselineskip} <br>
             \\RaggedRightRightskip 0pt plus 30pt minus 0pt\\relax <br>

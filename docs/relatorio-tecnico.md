@@ -14,7 +14,7 @@
 
 ## 1. Resumo executivo
 
-O projeto é uma aplicação web Laravel, de escopo institucional, que permite a alunos de Graduação e Pós-Graduação do Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP) gerarem automaticamente a **ficha catalográfica** de seus trabalhos acadêmicos. O aluno preenche um formulário com dados de autoria, título, orientação, grau, programa, ano, número de páginas, ilustrações e assuntos; o sistema monta o texto da ficha em formato próximo ao usado pela biblioteca e oferece duas saídas:
+O projeto é uma aplicação web Laravel, de escopo institucional, que permite a alunos de Graduação e Pós-Graduação do Instituto de Matemática, Estatística e Ciência da Computação da Universidade de São Paulo (IME-USP) gerarem automaticamente a **ficha catalográfica** de seus trabalhos acadêmicos. O aluno preenche um formulário com dados de autoria, título, orientação, grau, programa, ano, número de páginas, ilustrações e assuntos; o sistema monta o texto da ficha em formato próximo ao usado pela biblioteca e oferece duas saídas:
 
 1. **PDF** gerado com a biblioteca Cezpdf, em folha A4, com cabeçalho e rodapé configuráveis pela biblioteca;
 2. **Trecho de código LaTeX** para ser inserido no modelo LaTeX do IME-USP.
@@ -50,7 +50,7 @@ O sistema resolve um problema real e bem delimitado: padronizar e automatizar a 
 | Item | Informação |
 |---|---|
 | Nome do projeto | `ficha-catalografica` |
-| Organização | IME-USP — Instituto de Matemática e Estatística da USP |
+| Organização | IME-USP — Instituto de Matemática, Estatística e Ciência da Computação da USP |
 | Repositório | GitHub `ime-usp-br/ficha-catalografica` |
 | Tipo | Aplicação web monolítica Laravel |
 | Finalidade | Geração de ficha catalográfica de trabalhos acadêmicos |
@@ -508,7 +508,7 @@ A função `montaTextoFicha($request)` (`app/Http/Controllers/FichaController.ph
    - Primeira linha: `Sobrenome, Nome`;
    - Segunda linha: `Título: Subtítulo / Nome Sobrenome; orientador(a), ... . - São Paulo, Ano.`;
    - Terceira linha: `N p.: il.`;
-   - Quarto bloco: grau acadêmico + ` - ` + departamento/programa + `/ Instituto de Matemática e Estatística / Universidade de São Paulo.`;
+   - Quarto bloco: grau acadêmico + ` - ` + departamento/programa + `/ Instituto de Matemática, Estatística e Ciência da Computação / Universidade de São Paulo.`;
    - `Bibliografia`;
    - versão do trabalho;
    - assuntos numerados;
@@ -518,7 +518,7 @@ A função `montaTextoFicha($request)` (`app/Http/Controllers/FichaController.ph
    - Para Graduação: usa `departamento` (ex.: `Departamento de Ciência da Computação`);
    - Para Pós-Graduação: usa `area_concentracao` (ex.: `Programa de Pós-Graduação em Matemática`);
    - Para `Dissertação (Mestrado Profissional)`: força o texto `Programa de Pós-Graduação Mestrado Profissional em Ensino de Matemática`, ignorando a seleção do formulário (linha 64);
-   - Em todos os casos, acrescenta `/ Instituto de Matemática e Estatística / Universidade de São Paulo.`.
+   - Em todos os casos, acrescenta `/ Instituto de Matemática, Estatística e Ciência da Computação / Universidade de São Paulo.`.
 
 9. **Assuntos**
    - Até 5 assuntos, numerados `1.` a `5.`;
@@ -555,7 +555,7 @@ Silva Neto, João Carlos da
    Análise de séries temporais: um estudo de caso / João Carlos da Silva Neto; orientadora, Maria Souza. - São Paulo, 2024.
    120 p.: il.
 
-   Dissertação (Mestrado) - Programa de Pós-Graduação em Matemática / Instituto de Matemática e Estatística / Universidade de São Paulo.
+   Dissertação (Mestrado) - Programa de Pós-Graduação em Matemática / Instituto de Matemática, Estatística e Ciência da Computação / Universidade de São Paulo.
    Bibliografia
    Versão original
 
@@ -785,7 +785,7 @@ php artisan tinker
 
 ```php
 \App\Models\Config::create([
-    'cabecalho' => "Biblioteca Carlos Benjamin de Lyra\nInstituto de Matemática e Estatística\nUniversidade de São Paulo",
+    'cabecalho' => "Biblioteca Carlos Benjamin de Lyra\nInstituto de Matemática, Estatística e Ciência da Computação\nUniversidade de São Paulo",
     'rodape' => "Ficha catalográfica elaborada com dados inseridos pelo(a) autor(a)",
 ]);
 ```
