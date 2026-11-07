@@ -1,7 +1,7 @@
 # =============================================================================
 # Ficha Catalográfica IME — PHP-FPM (produção)
 # =============================================================================
-# Runtime PHP 7.4 (mesma linha do Laravel 8 / pacotes uspdev do projeto).
+# Runtime PHP 8.5.12 (mesma linha do Laravel 8 / pacotes uspdev do projeto).
 # O código-fonte é montado via bind mount no docker-compose.yml; a imagem
 # contém apenas PHP, Composer e as extensões exigidas pela aplicação.
 #
