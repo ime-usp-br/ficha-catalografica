@@ -5,25 +5,23 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
-        "barryvdh/laravel-dompdf": "^1.0",
-        "fruitcake/laravel-cors": "^2.0",
+        "php": "^8.3",
+        "barryvdh/laravel-dompdf": "^3.1",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^8.75",
-        "laravel/sanctum": "^2.11",
-        "laravel/tinker": "^2.5",
+        "laravel/framework": "^13.0",
+        "laravel/sanctum": "^4.3",
+        "laravel/tinker": "^3.0",
         "ros/ezpdf": "^0.12.1",
         "rospdf/pdf-php": "^0.12.63",
-        "uspdev/laravel-usp-theme": "^2.4",
-        "uspdev/senhaunica-socialite": "^4.3"
+        "uspdev/laravel-usp-theme": "^2.8",
+        "uspdev/senhaunica-socialite": "^4.5"
     },
     "require-dev": {
-        "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^5.10",
-        "phpunit/phpunit": "^9.5.10"
+        "nunomaduro/collision": "^8.0",
+        "phpunit/phpunit": "^13.0"
     },
     "autoload": {
         "psr-4": {
@@ -61,8 +59,13 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "audit": {
+            "block": false
+        }
     },
+
+    
     "minimum-stability": "dev",
     "prefer-stable": true
 }

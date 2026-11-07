@@ -62,7 +62,8 @@ if [ ! -f vendor/autoload.php ] || [ "$(cat vendor/.composer-lock-hash 2>/dev/nu
         --no-interaction \
         --no-progress \
         --prefer-dist \
-        --optimize-autoloader
+        --optimize-autoloader \
+        --ignore-platform-reqs
     printf '%s\n' "${LOCK_HASH}" > vendor/.composer-lock-hash
 fi
 
