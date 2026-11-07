@@ -113,17 +113,24 @@ services:
             CONTAINER_ROLE: app
         networks:
             - ficha-catalografica
-        depends_on:
-            mysql:
-                condition: service_healthy
+        #depends_on:
+        #    mysql:
+        #        condition: service_healthy
+
+        # Mapeia o host.docker.internal para o IP da máquina hospedeira
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+
 
     # =========================================================================
     # Nginx — ponto de entrada (NPM -> ficha-catalografica-nginx:80)
     # =========================================================================
     nginx:
-        image: nginx:1.27-alpine
+        image: nginx:1.31.8-alpine
         container_name: ficha-catalografica-nginx
         restart: unless-stopped
+        ports:
+            - "80:80"    # <-- Adicione esta linha
         expose:
             - "80"
         volumes:
@@ -144,29 +151,29 @@ services:
     # =========================================================================
     # MySQL (interno; não publicado no host)
     # =========================================================================
-    mysql:
-        image: mysql:8.0
-        container_name: ficha-catalografica-mysql
-        restart: unless-stopped
-        environment:
-            MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD:-ficha}"
-            MYSQL_DATABASE: "${DB_DATABASE:-ficha_catalografica}"
-            MYSQL_USER: "${DB_USERNAME:-ficha}"
-            MYSQL_PASSWORD: "${DB_PASSWORD:-ficha}"
-        command:
-            - --character-set-server=utf8mb4
-            - --collation-server=utf8mb4_unicode_ci
-            - --default-authentication-plugin=mysql_native_password
-        volumes:
-            - mysql-data:/var/lib/mysql
-        networks:
-            - ficha-catalografica
-        healthcheck:
-            test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p\"$${MYSQL_ROOT_PASSWORD}\" --silent"]
-            interval: 10s
-            timeout: 5s
-            retries: 10
-            start_period: 30s
+#    mysql:
+#        image: mysql:8.0
+#        container_name: ficha-catalografica-mysql
+#        restart: unless-stopped
+#        environment:
+#            MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD:-ficha}"
+#            MYSQL_DATABASE: "${DB_DATABASE:-ficha_catalografica}"
+#            MYSQL_USER: "${DB_USERNAME:-ficha}"
+#            MYSQL_PASSWORD: "${DB_PASSWORD:-ficha}"
+#        command:
+#            - --character-set-server=utf8mb4
+#            - --collation-server=utf8mb4_unicode_ci
+#            - --default-authentication-plugin=mysql_native_password
+#        volumes:
+#            - mysql-data:/var/lib/mysql
+#        networks:
+#            - ficha-catalografica
+#        healthcheck:
+#            test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p\"$${MYSQL_ROOT_PASSWORD}\" --silent"]
+#            interval: 10s
+#            timeout: 5s
+#            retries: 10
+#            start_period: 30s
 
 # =============================================================================
 # Redes
@@ -185,3 +192,5 @@ networks:
 volumes:
     mysql-data:
         name: ficha-catalografica-mysql-data
+
+

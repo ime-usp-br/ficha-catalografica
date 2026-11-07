@@ -11,7 +11,7 @@
 #   - zip, intl, mbstring, bcmath, exif, pcntl, opcache
 # =============================================================================
 
-FROM php:7.4-fpm-bullseye
+FROM php:8.5.12-fpm
 
 ARG uid=1001
 ARG gid=1001
@@ -23,7 +23,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # O índice público do bullseye-security está inconsistente (Packages aponta
 # para .debs já removidos do pool). Mantemos apenas main + updates.
 RUN set -eux; \
-    sed -i '/debian-security/d' /etc/apt/sources.list; \
     apt-get update -o Acquire::Retries=5; \
     apt-get install -y --no-install-recommends \
         ca-certificates \
@@ -57,7 +56,10 @@ RUN curl -fsSL -o /usr/local/bin/gosu \
         "https://github.com/tianon/gosu/releases/download/1.17/gosu-$(dpkg --print-architecture)" \
     && chmod +x /usr/local/bin/gosu
 
+
 # Composer 2
+RUN git config --global --add safe.directory /var/www
+
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # Fuso horário do container
